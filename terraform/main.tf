@@ -30,7 +30,6 @@ resource "azurerm_container_registry" "acr" {
   location            = var.location
   sku                 = "Standard"
   admin_enabled       = true
-  public_network_access_enabled = false
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
