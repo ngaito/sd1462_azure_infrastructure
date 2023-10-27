@@ -8,8 +8,8 @@ name: backend
 
 # Image repository and tag for the backend container
 image:
-  repository: trongngai/backend
-  # repository: ngaitodemoacr.azurecr.io/backend
+  # repository: trongngai/backend
+  repository: ngaitodemoacr.azurecr.io/backend
   tag: latest
 
 # Port for the backend service

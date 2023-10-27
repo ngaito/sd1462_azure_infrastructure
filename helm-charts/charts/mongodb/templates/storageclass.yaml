@@ -1,18 +1,18 @@
-# ---
-# apiVersion: storage.k8s.io/v1
-# kind: StorageClass
-# metadata:
-#   name: {{ .Values.name }}
-# provisioner: kubernetes.io/azure-disk
-# parameters:
-#   skuName: Standard_LRS
-#   location: eastus
-# volumeBindingMode: WaitForFirstConsumer
-# allowVolumeExpansion: true
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: {{ .Values.name }}
-provisioner: kubernetes.io/no-provisioner
+provisioner: kubernetes.io/azure-disk
+parameters:
+  skuName: Standard_LRS
+  location: eastus
 volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+# ---
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: {{ .Values.name }}
+# provisioner: kubernetes.io/no-provisioner
+# volumeBindingMode: WaitForFirstConsumer
