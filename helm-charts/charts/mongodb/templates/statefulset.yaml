@@ -31,7 +31,7 @@ spec:
     - metadata:
         name: data-volume
       spec:
-        storageClassName: {{ .Values.name }}
+        storageClassName: mongo-sc
         accessModes:
           - "ReadWriteOnce"
         resources:
