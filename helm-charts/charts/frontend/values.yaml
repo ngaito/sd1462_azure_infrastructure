@@ -1,3 +1,5 @@
+namespace: default
+
 # Replica count for the frontend deployment
 replicaCount: 2
 
@@ -6,7 +8,8 @@ name: frontend
 
 # Image repository and tag for the frontend container
 image:
-  repository: ngaitodemoacr.azurecr.io/frontend
+  repository: hnguyencanh/frontend
+  # repository: ngaitodemoacr.azurecr.io/frontend
   tag: latest
 
 # Port for the frontend service
