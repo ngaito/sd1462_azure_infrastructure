@@ -8,7 +8,7 @@ name: backend
 
 # Image repository and tag for the backend container
 image:
-  repository: hnguyencanh/backend
+  repository: trongngai/backend
   # repository: ngaitodemoacr.azurecr.io/backend
   tag: latest
 
