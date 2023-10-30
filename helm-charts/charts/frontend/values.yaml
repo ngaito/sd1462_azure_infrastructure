@@ -8,8 +8,8 @@ name: frontend
 
 # Image repository and tag for the frontend container
 image:
-  repository: trongngai/frontend
-  # repository: ngaitodemoacr.azurecr.io/frontend
+  #repository: trongngai/frontend
+  repository: ngaitodemoacr.azurecr.io/frontend
   tag: latest
 
 # Port for the frontend service
