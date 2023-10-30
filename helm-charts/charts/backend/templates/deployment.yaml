@@ -16,8 +16,8 @@ spec:
       containers:
         - name: {{ .Values.name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.servicePort }}
       imagePullSecrets:
-      - name: mycontainerregistry-secret
+        - name: mycontainerregistry-secret
