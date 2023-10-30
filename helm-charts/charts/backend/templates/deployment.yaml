@@ -19,3 +19,5 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.servicePort }}
+      imagePullSecrets:
+      - name: mycontainerregistry-secret
