@@ -10,7 +10,7 @@ name: frontend
 image:
   #repository: trongngai/frontend
   repository: ngaitodemoacr.azurecr.io/frontend
-  tag: 14
+  tag: 16
 
 # Port for the frontend service
 servicePort: 3000
