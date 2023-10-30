@@ -10,7 +10,7 @@ name: backend
 image:
   #repository: trongngai/backend
   repository: ngaitodemoacr.azurecr.io/backend
-  tag: 16
+  tag: latest
 
 # Port for the backend service
 servicePort: 3001
