@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
         - name: bluegreen-demo
-          image: trongngai/frontend:blue
+          #image: trongngai/frontend:blue
+          image: ngaitodemoacr.azurecr.io/frontend:blue
           imagePullPolicy: Always
           ports:
             - name: http
