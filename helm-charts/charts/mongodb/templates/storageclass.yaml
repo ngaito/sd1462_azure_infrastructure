@@ -10,9 +10,46 @@
 # volumeBindingMode: WaitForFirstConsumer
 # allowVolumeExpansion: true
 ---
-apiVersion: storage.k8s.io/v1
 kind: StorageClass
+apiVersion: storage.k8s.io/v1
 metadata:
-  name: {{ .Values.name }}
+  name: mongodb-standalone
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: mongodb-standalone
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: mongodb-standalone
+  local:
+    path: /k8-demo
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - mongodb-node
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mongodb-standalone
+spec:
+  storageClassName: mongodb-standalone
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
