@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: myalias=ngaitodemoacr.azurecr.io/frontend:*
+    argocd-image-updater.argoproj.io/write-back-method: git       
+    argocd-image-updater.argoproj.io/git-branch: master      
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/myalias.force-update: "true"
+spec:
+  project: frontend
+  source:
+    repoURL: https://github.com/ngaito/sd1462_azure_infrastructure
+    targetRevision: HEAD
+    path: argo-cd-image-updater/frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true 
+      prune: false
